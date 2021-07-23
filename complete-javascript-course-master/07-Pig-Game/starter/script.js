@@ -16,14 +16,27 @@ const querySelecting = x => document.querySelector(x),
     btnHold = querySelecting('.btn--hold');
 
 // Starting conditions
-score0El.textContent = 0;
-score1El.textContent = 0;
-diceEl.classList.add('hidden');
+let currrentScore, activePlayer, playing, scores;
 
-const scores = [0, 0]
-let currrentScore = 0,
-    activePlayer = 0,
-    playing = true;
+const holyHandGrenade = () => {
+    currrentScore = 0,
+        activePlayer = 0,
+        playing = true,
+        scores = [0, 0];
+
+    score0El.textContent = 0;
+    score1El.textContent = 0;
+    current0El.textContent = 0;
+    current1El.textContent = 0;
+
+    diceEl.classList.add('hidden');
+    player0El.classList.remove('player--winner');
+    player1El.classList.remove('player--winner');
+    player0El.classList.add('player--active');
+    player1El.classList.remove('player--active');
+}
+
+holyHandGrenade();
 
 const switchPlayer = function () {
     querySelecting(`#current--${activePlayer}`).textContent = 0;
@@ -32,6 +45,7 @@ const switchPlayer = function () {
     player0El.classList.toggle('player--active');
     player1El.classList.toggle('player--active');
 }
+
 
 // Rolling dice functionality
 btnRoll.addEventListener('click', function () {
@@ -68,7 +82,7 @@ btnHold.addEventListener('click', function () {
         querySelecting(`#score--${activePlayer}`).textContent = scores[activePlayer];
 
         // 2. Check if player's score is >= 100
-        if (scores[activePlayer] >= 100) {
+        if (scores[activePlayer] >= 10) {
             // Finish the game
             playing = false;
             diceEl.classList.add('hidden');
@@ -82,3 +96,5 @@ btnHold.addEventListener('click', function () {
 
     }
 })
+
+btnNew.addEventListener('click', holyHandGrenade)
