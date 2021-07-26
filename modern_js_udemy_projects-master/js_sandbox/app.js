@@ -1,6 +1,6 @@
 /*
 ////////////////////////////////////
-//2. JavaScript Language Fundamentals
+// 2. JavaScript Language Fundamentals
 
 // 1. Section Intro & File Setup
 alert('Hello World');
@@ -756,7 +756,6 @@ val = window.navigator.language;
 
 console.log(val);
 
-*/
 
 // 17. Block Scope With let & const
 // Global Scope
@@ -786,3 +785,10 @@ const c = 3;
 // }
 
 console.log('Global Scope: ', a, b, c);
+*/
+
+/* */
+////////////////////////////////////
+// 3. DOM Manipulation & Events
+
+// 2. Examining The Document Object
