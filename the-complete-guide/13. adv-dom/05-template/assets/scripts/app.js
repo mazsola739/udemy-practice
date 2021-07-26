@@ -9,7 +9,7 @@ class DOMHelper {
     const element = document.getElementById(elementId);
     const destinationElement = document.querySelector(newDestinationSelector);
     destinationElement.append(element);
-    element.scrollIntoView({ behavior: 'smooth' });
+    element.scrollIntoView({behavior: 'smooth'});
   }
 }
 
@@ -58,7 +58,7 @@ class Tooltip extends Component {
     const tooltipBody = document.importNode(tooltipTemplate.content, true);
     tooltipBody.querySelector('p').textContent = this.text;
     tooltipElement.append(tooltipBody);
-
+    
     const hostElPosLeft = this.hostElement.offsetLeft;
     const hostElPosTop = this.hostElement.offsetTop;
     const hostElHeight = this.hostElement.clientHeight;
@@ -170,19 +170,6 @@ class App {
     finishedProjectsList.setSwitchHandlerFunction(
       activeProjectsList.addProject.bind(activeProjectsList)
     );
-
-    const timerId = setTimeout(this.startAnalytics, 3000);
-
-    document.getElementById('stop-analytics-btn').addEventListener('click', () => {
-      clearTimeout(timerId);
-    });
-  }
-
-  static startAnalytics() {
-    const analyticsScript = document.createElement('script');
-    analyticsScript.src = 'assets/scripts/analytics.js';
-    analyticsScript.defer = true;
-    document.head.append(analyticsScript);
   }
 }
 
