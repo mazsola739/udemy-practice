@@ -1224,7 +1224,7 @@ function deleteItem(e) {
     }
 }
 
-*/
+
 // 12. Local & Session Storage
 // set local storage item
 // localStorage.setItem('name', 'John');
@@ -1270,3 +1270,30 @@ const tasks = JSON.parse(localStorage.getItem('tasks'));
 tasks.forEach(function (task) {
     console.log(task);
 });
+
+*/
+
+/* */
+////////////////////////////////////
+// 5. Object Oriented JavaScript - ES5 & ES2015
+
+// 1. Constructors & the 'this' Keyword
+// Person constructor
+function Person(name, dob) {
+    this.name = name;
+    // this.age = age;
+    this.birthday = new Date(dob);
+    this.calculateAge = function () {
+        const diff = Date.now() - this.birthday.getTime();
+        const ageDate = new Date(diff);
+        return Math.abs(ageDate.getUTCFullYear() - 1970);
+    }
+}
+
+// const brad = new Person('Brad', 36);
+// const john = new Person('John', 30);
+
+// console.log(john.age);
+
+const brad = new Person('Brad', '9-10-1981');
+console.log(brad.calculateAge());
